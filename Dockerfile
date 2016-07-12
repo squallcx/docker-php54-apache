@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y ca-certificates curl librecode0 libsqli
 
 # phpize deps
 RUN apt-get update && apt-get install -y autoconf file g++ gcc libc-dev make pkg-config re2c --no-install-recommends && rm -r /var/lib/apt/lists/*
-
+RUN apt-get update && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev
 ENV PHP_INI_DIR /usr/local/etc/php
 RUN mkdir -p $PHP_INI_DIR/conf.d
 
@@ -67,6 +67,9 @@ RUN buildDeps=" \
 		--with-mysql=mysqlnd  \
 		--with-mysqli=mysqlnd  \
 		--with-pdo-mysql=mysqlnd  \
+		--with-gd \
+		--with-jpeg-dir \
+		--with-png-dir \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& { find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; } \
