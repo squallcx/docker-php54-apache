@@ -70,6 +70,10 @@ RUN buildDeps=" \
 		--with-gd \
 		--with-jpeg-dir \
 		--with-png-dir \
+		--enable-zip \
+		--enable-mbstring \
+		--enable-phpdbg \
+		--enable-phpdbg-webhelper \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& { find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; } \
