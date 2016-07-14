@@ -87,6 +87,7 @@ COPY apache2-foreground /usr/local/bin/
 RUN a2enmod rewrite
 RUN service apache2 restart
 RUN chmod -R 777 /var/www/html
+RUN chmod -R 755 /var/www/html/phpmyadmin/
 WORKDIR /var/www/html
 
 EXPOSE 80
