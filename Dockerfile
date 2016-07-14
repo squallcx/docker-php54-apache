@@ -86,8 +86,7 @@ COPY docker-php-ext-* /usr/local/bin/
 COPY apache2-foreground /usr/local/bin/
 RUN a2enmod rewrite
 RUN service apache2 restart
-RUN chmod -R 777 /var/www/html
-RUN chmod -R 755 /var/www/html/phpmyadmin/
+# RUN chmod -R 777 /var/www/html
 WORKDIR /var/www/html
 
 EXPOSE 80
