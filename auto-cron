@@ -1,1 +1,1 @@
-0 8 * * * /auto_post.sh
+0 8 * * * root sh /auto_post.sh
